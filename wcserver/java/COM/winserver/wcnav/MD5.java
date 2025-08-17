@@ -1,5 +1,5 @@
 /*
- * $Header: c:\cvsroot/wc5/wcsdk/wcserver/java/COM/winserver/wcnav/MD5.java,v 1.1 2019/05/07 18:24:52 Administrator Exp $
+ * $Header: c:\\cvsroot/wc5/wcsdk/wcserver/java/COM/winserver/wcnav/MD5.java,v 1.2 2025/04/11 21:48:10 Administrator Exp $
  *
  * MD5 in Java JDK Beta-2
  * written Santeri Paavolainen, Helsinki Finland 1996
@@ -33,6 +33,9 @@
  *
  *
  * $Log: MD5.java,v $
+ * Revision 1.2  2025/04/11 21:48:10  Administrator
+ * wcSDK 454.16 update
+ *
  * Revision 1.1  2019/05/07 18:24:52  Administrator
  * add wcSDK source code/files for current\UpdateFiles.exe
  *
@@ -112,7 +115,7 @@ class MD5State {
 /**
  * Implementation of RSA's MD5 hash generator
  *
- * @version	$Revision: 1.1 $
+ * @version	$Revision: 1.2 $
  * @author	Santeri Paavolainen <sjpaavol@cc.helsinki.fi>
  */
 

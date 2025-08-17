@@ -1,0 +1,75 @@
+#-------------------------------------------------- 02/09/23 07:46 am
+
+# Wildcat! Trivia Examples Files
+
+Wildcat! Trivia Server: C/C++
+
+  wcserver/cpp/examples/TriviaServer/Wctrivia.vcxproj
+  wcserver/cpp/examples/TriviaServer/Wctrivia.vcxproj.filters
+  wcserver/cpp/examples/TriviaServer/Wctrivia.vcxproj.user
+  wcserver/cpp/examples/TriviaServer/common.h
+  wcserver/cpp/examples/TriviaServer/globals.cpp
+  wcserver/cpp/examples/TriviaServer/globals.h
+  wcserver/cpp/examples/TriviaServer/resource.h
+
+  wcserver/cpp/examples/TriviaServer/spserver.cpp
+  wcserver/cpp/examples/TriviaServer/spserver.h
+
+  wcserver/cpp/examples/TriviaServer/trvsrvr.cpp
+  wcserver/cpp/examples/TriviaServer/trvsrvr.h
+
+  wcserver/cpp/examples/TriviaServer/testsp.cc
+  wcserver/cpp/examples/TriviaServer/testsp.cpp
+  wcserver/cpp/examples/TriviaServer/textfile.cpp
+  wcserver/cpp/examples/TriviaServer/textfile.h
+  wcserver/cpp/examples/TriviaServer/thread.cpp
+  wcserver/cpp/examples/TriviaServer/thread.h
+  wcserver/cpp/examples/TriviaServer/wctrivia.aps
+  wcserver/cpp/examples/TriviaServer/wctrivia.cpp
+  wcserver/cpp/examples/TriviaServer/wctrivia.dat
+  wcserver/cpp/examples/TriviaServer/wctrivia.dsp
+  wcserver/cpp/examples/TriviaServer/wctrivia.dsw
+  wcserver/cpp/examples/TriviaServer/wctrivia.rc
+
+Wildcat! Trivia Client: Delphi Pascal
+
+wcserver/delphi/examples/TriviaDoor/dcc32.cfg
+wcserver/delphi/examples/TriviaDoor/door32.dll
+wcserver/delphi/examples/TriviaDoor/dtrivia.dpr
+wcserver/delphi/examples/TriviaDoor/dtrivia.exe
+wcserver/delphi/examples/TriviaDoor/dtrivia.res
+wcserver/delphi/examples/TriviaDoor/trdoor.ico
+wcserver/delphi/examples/TriviaDoor/wcDoor32.dll
+wcserver/delphi/examples/TriviaDoor/wcsrv2.dll
+
+Wildcat! Trivia Server: Delphi Pascal
+
+wcserver/delphi/examples/TriviaServer/globals.dcu
+wcserver/delphi/examples/TriviaServer/globals.pas
+wcserver/delphi/examples/TriviaServer/mainfrm.dcu
+wcserver/delphi/examples/TriviaServer/mainfrm.dfm
+wcserver/delphi/examples/TriviaServer/mainfrm.pas
+wcserver/delphi/examples/TriviaServer/spserver.pas
+wcserver/delphi/examples/TriviaServer/trvsrvr.dcu
+wcserver/delphi/examples/TriviaServer/trvsrvr.pas
+wcserver/delphi/examples/TriviaServer/wctrivia.dpr
+wcserver/delphi/examples/TriviaServer/wctrivia.exe
+wcserver/delphi/examples/TriviaServer/wctrivia.res
+
+Wildcat! Trivia Client: wcPHP (PHP with Wildcat! PHP Extension DLLs)
+
+wcserver/php/examples/TriviaDoor/pwe_door_trivia.php
+wcserver/php/examples/TriviaDoor/pwe_door_trivia_ob.php
+wcserver/php/examples/batch/pwe/pwe_door_trivia.php
+wcserver/php/examples/batch/pwe/pwe_door_trivia_ob.php
+wcserver/php/examples/door32/pwe_door_trivia.php
+wcserver/php/examples/door32/pwe_door_trivia_ob.php
+
+Wildcat! Trivia Client: wcBASIC
+
+wcserver/wcBASIC/Examples/Trivia/html-trivia.wcc
+wcserver/wcBASIC/Examples/Trivia/html-trivia.wcx
+wcserver/wcBASIC/Examples/Trivia/trivia.wcc
+wcserver/wcBASIC/Examples/Trivia/trivia.wcx
+wcserver/wcBASIC/Examples/Trivia/wcTrivia-Helper.wcc
+
