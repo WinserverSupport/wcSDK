@@ -5,9 +5,10 @@ Wildcat! SDK/API
 
 Version   : 8.0
 Build     : 454.16
-Date      : 03/17/2025
+Date      : 08/18/2025
 </pre>
 
+WCSDK Repo   : https://github.com/WinserverSupport/wcSDK
 WCSDK Website: http://www.winserver.com/public/wcsdk
 
 ------
@@ -50,7 +51,6 @@ Legacy Languages: Obsolete and is no longer supported.
 - Any .Net application written in VB.NET or C# much be compiled to
   target 32 bit or Any CPU since the imported *.dll are 32 bit.
 
-
 ------------------
 Future Projects:
 ------------------
@@ -80,4 +80,5 @@ Revision History:
 | 454.15 | 07/20/24  | SSI    | - Cleaned up wctype.h and other headers.                          |
 |        |           |        | - Updated wcServerAPI.cs                                          |
 | 454.16 | 03/17/25  | SSI    | - Updated WCSDK Delphi Examples, removed CVS                      |
+| 454.16 | 08/18/25  | SSI    | - Final Update for v8.0.454.16                                    |
 
