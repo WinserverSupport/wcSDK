@@ -1,3 +1,5 @@
+*.bak
+
 ## ignore CVS/ version control repos
 CVS/
 
