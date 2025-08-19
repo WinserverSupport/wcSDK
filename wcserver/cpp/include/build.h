@@ -1,6 +1,6 @@
-//*******************************************************************
-// (c) Copyright 1999 Santronics Software, Inc. All Rights Reserved.
-//*******************************************************************
+//************************************************************************
+// (c) Copyright 1999-2026 Santronics Software, Inc. All Rights Reserved.
+//************************************************************************
 //
 // File Name : build.h
 // Created   : 07/14/99 11:19 pm
@@ -22,6 +22,7 @@
 // 452    11/16/06 HLS     Changed to 452
 // 453    07/09/09 HLS     Changed to 453.1
 // 454    06/23/11 HLS     Changed to 454.1  (last 453.5T10)
+// 500    08/05/25 HLS     Start of Build 500
 //*******************************************************************
 
 #ifndef __WCBUILD_H
@@ -29,7 +30,7 @@
 
 // This constant should be part of all builds, including releases
 
-const DWORD WILDCAT_FRAMEWORK_BUILD = 454;
-#define WC_VERSION_BUILD   "454"
+const DWORD WILDCAT_FRAMEWORK_BUILD = 500;
+#define WC_VERSION_BUILD   "500"
 
 #endif

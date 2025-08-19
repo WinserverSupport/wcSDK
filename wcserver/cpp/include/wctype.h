@@ -1,14 +1,14 @@
 //***********************************************************************
-// (c) Copyright 1998-2024 Santronics Software, Inc. All Rights Reserved.
+// (c) Copyright 1998-2025 Santronics Software, Inc. All Rights Reserved.
 //***********************************************************************
 // File Name : wctype.h
-// version   : 454.15
+// version   : v10.0.500.1
 //
 // Revision History:
 // Build  Date     Author  Comments
 // -----  -------- ------  -------------------------------
 // 454.15 07/17/24 HLS     Cleaned up
-//
+// 500.1  08/11/25 HLS     Start of wc10
 ////////////////////////////////////////////////////////////////////////
 
 #ifndef __WCTYPE_H
@@ -70,9 +70,9 @@ cpp_quote("#endif // WINVER")
 
 //////////////////////////////////////////////////////////////////
 
-const DWORD WILDCAT_FRAMEWORK_VERSION    = 1;
-const DWORD WILDCAT_MKTG_VERSION         = 8;
-#define WILDCAT_MARKETING_VERSION        "8.0"
+const DWORD WILDCAT_FRAMEWORK_VERSION    = 2;
+const DWORD WILDCAT_MKTG_VERSION         = 10;
+#define WILDCAT_MARKETING_VERSION        "10.0"
 
 const DWORD WILDCAT_COMPONENT_ICP        = 0x00000001;
 const DWORD WILDCAT_COMPONENT_SSL        = 0x00000002;

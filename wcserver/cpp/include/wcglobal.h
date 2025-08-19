@@ -21,6 +21,7 @@
 // 454.15     07/17/24  HLS    - build changed to 454.15
 // 454.16     10/25/24  HLS    - build changed to 454.16
 //            03/15/25  HLS    - updated copyright
+// 500.1      08/05/25  HLS    - New Build
 //***********************************************************************
 
 #ifndef __WCGLOBAL_H
@@ -28,67 +29,37 @@
 
 #include "build.h"
 
-/////////////////////////////////////////////////////////////////////
-#if !defined(WILDCAT_V5)
-// removed 451.1 03/19/04 01:47 pm
-//#define WILDCAT_V5
-#endif
-/////////////////////////////////////////////////////////////////////
-
-/////////////////////////////////////////////////////////////////////
-// 450.6b3
-#if !defined(WILDCAT_V56)
-// removed 451.1 03/19/04 01:47 pm
-//#define WILDCAT_V56
-#endif
-
-/////////////////////////////////////////////////////////////////////
-// 451.1
 #if !defined(WILDCAT_V60)
 #define WILDCAT_V60
 #endif
-/////////////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////////////////
-// 451.5
 #if !defined(WILDCAT_V61)
 #define WILDCAT_V61
 #endif
-/////////////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////////////////
-// 452.1
 #if !defined(WILDCAT_V62)
 #define WILDCAT_V62
 #endif
 
-/////////////////////////////////////////////////////////////////////
-// 452.5
 #if !defined(WILDCAT_V63)
 #define WILDCAT_V63
 #endif
-/////////////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////////////////
-// 453.5T11
 #if !defined(WILDCAT_V64)
 #define WILDCAT_V64
 #endif
-/////////////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////////////////
-// 453.5T11
 #if !defined(WILDCAT_V70)
 #define WILDCAT_V70
 #endif
-/////////////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////////////////
-// 454.8
 #if !defined(WILDCAT_V80)
 #define WILDCAT_V80
 #endif
-/////////////////////////////////////////////////////////////////////
+
+#if !defined(WILDCAT_V100)
+#define WILDCAT_V100
+#endif
 
 //------------------------------------------------------------------
 // These will cause version conflict.
@@ -102,7 +73,8 @@
 //#define WC_VERSION_USER       "6.3"             // 05/04/08 01:46 am
 //#define WC_VERSION_USER       "6.4"             // 06/23/11 02:17 am
 //#define WC_VERSION_USER       "7.0"             // 05/27/12 05:18 am
-#define WC_VERSION_USER       "8.0"               // 03/15/19 12:12 am
+//#define WC_VERSION_USER       "8.0"             // 03/15/19 12:12 am
+#define WC_VERSION_USER       "10.0"              // 08/05/25 01:59 pm
 
 //#define WC_VERSION_WORD       0x0506            // 450.8 06/20/2003, for wccdll.dll
 //#define WC_VERSION_WORD       0x0507            // 450.9b2
@@ -112,7 +84,8 @@
 //#define WC_VERSION_WORD       0x0603            // 05/04/08 01:47 am
 //#define WC_VERSION_WORD       0x0604            // 06/23/11 02:17 am
 //#define WC_VERSION_WORD       0x0700            // 05/27/12 05:18 am
-#define WC_VERSION_WORD       0x0800              // 03/15/19 12:12 am
+//#define WC_VERSION_WORD       0x0800              // 03/15/19 12:12 am
+#define WC_VERSION_WORD       0x0A00              // 08/05/25 01:59 pm
 
 #define WC_DWORD_VERSION_WC5  0x00005000   // WC5 Makewild version
 #define WC_DWORD_VERSION_WC55 0x00005050   // WC5 Makewild version
@@ -126,7 +99,8 @@
 #define WC_DWORD_VERSION_WC64 0x00006040   // WC6 Makewild version // 453.5T11
 #define WC_DWORD_VERSION_WC70 0x00007000   // WC7 Makewild version // 454.4
 #define WC_DWORD_VERSION_WC80 0x00008000   // WC8 Makewild version // 454.8
-//
+#define WC_DWORD_VERSION_WC100 0x0000A000   // WC10 Makewild version // 500.1
+
 //#define WC_DWORD_VERSION      WC_DWORD_VERSION_WC56
 //#define WC_DWORD_VERSION      WC_DWORD_VERSION_WC57  // 450.9b2
 //#define WC_DWORD_VERSION      WC_DWORD_VERSION_WC60  // 450.9b2
@@ -134,7 +108,8 @@
 //#define WC_DWORD_VERSION      WC_DWORD_VERSION_WC63  // 452.5
 //#define WC_DWORD_VERSION      WC_DWORD_VERSION_WC64  // 453.5T11
 //#define WC_DWORD_VERSION      WC_DWORD_VERSION_WC70  // 454.4
-#define WC_DWORD_VERSION      WC_DWORD_VERSION_WC80    // 454.8
+//#define WC_DWORD_VERSION      WC_DWORD_VERSION_WC80    // 454.8
+#define WC_DWORD_VERSION      WC_DWORD_VERSION_WC100    // 500.1
 
 //------------------------------------------------------------------
 // Sub-build numbers
@@ -187,14 +162,16 @@
 //#define WC_VERSION_REV     ".13"               // 02/25/23 01:31 pm (8.0.454.13)
 //#define WC_VERSION_REV     ".14"               // 11/01/23 08:05 am (8.0.454.14)
 //#define WC_VERSION_REV     ".15"               // 07/17/24 01:41 pm (8.0.454.15)
-#define WC_VERSION_REV     ".16"               // 10/25/24 03:46 pm (8.0.454.16)
+//#define WC_VERSION_REV     ".16"               // 10/25/24 03:46 pm (8.0.454.16)
+// Start of BUILD 500 08/05/25 02:06 pm
+#define WC_VERSION_REV     ".1"               // 08/05/25 02:03 pm (10.0.500.1)
 
 //------------------------------------------------------------------
 // Beta versions
 //------------------------------------------------------------------
 
 #ifdef _DEBUG
-#define WC_VERSION_BETA    "B2"
+#define WC_VERSION_BETA    "B1"
 #else
 #define WC_VERSION_BETA    ""
 #endif
@@ -203,8 +180,8 @@
 // DO NOT CHANGE - except to change the date of the copyright
 //##################################################################
 
-#define WC_COPYRIGHT_LONG  "(c) copyright 1998-2025 by Santronics Software Inc."
-#define WC_COPYRIGHT_SHORT "(c) 1998-2025 SSI"
+#define WC_COPYRIGHT_LONG  "(c) copyright 1998-2026 by Santronics Software Inc."
+#define WC_COPYRIGHT_SHORT "(c) 1998-2026 SSI"
 #define WC_BUILD_DATE      __DATE__
 #define WC_BUILD_TIME      __TIME__
 #if _MFC_VER == 0x0600
