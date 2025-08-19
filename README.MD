@@ -82,5 +82,5 @@ Revision History:
 |        |           |        | - Updated wcServerAPI.cs                                          |
 | 454.16 | 03/17/25  | SSI    | - Updated WCSDK Delphi Examples, removed CVS                      |
 | 454.16 | 08/18/25  | SSI    | - Final Update for v8.0.454.16                                    |
-| 454.16 | 08/19/25  | SSI    | - Start wc10 development with v10.0.500.1                         |
+| 500.1  | 08/19/25  | SSI    | - Start wc10 development with v10.0.500.1                         |
 
