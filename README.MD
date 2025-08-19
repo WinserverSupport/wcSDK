@@ -3,9 +3,9 @@
 Wildcat! SDK/API
 (c) Copyright 1998-2025 Santronics Software, Inc. All Rights Reserved.
 
-Version   : 8.0
-Build     : 454.16
-Date      : 08/18/2025
+Version   : 10.0
+Build     : 500.1
+Date      : 08/19/2025
 </pre>
 
 WCSDK Repo   : https://github.com/WinserverSupport/wcSDK
@@ -82,4 +82,5 @@ Revision History:
 |        |           |        | - Updated wcServerAPI.cs                                          |
 | 454.16 | 03/17/25  | SSI    | - Updated WCSDK Delphi Examples, removed CVS                      |
 | 454.16 | 08/18/25  | SSI    | - Final Update for v8.0.454.16                                    |
+| 454.16 | 08/19/25  | SSI    | - Start wc10 development with v10.0.500.1                         |
 
