@@ -1,8 +1,8 @@
 @echo off
     setlocal
 
-    set src.path=\local\wc8
-    set tar.path=\local\wc8\wcsdk\wcserver\cpp
+    set src.path=\local\wc10
+    set tar.path=\local\wc10\wcsdk\wcserver\cpp
 
     if exist $missing-libs.txt erase $missing-libs.txt
 
