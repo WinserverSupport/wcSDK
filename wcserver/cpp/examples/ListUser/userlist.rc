@@ -1,36 +1,42 @@
-//Microsoft Developer Studio generated resource script.
+// Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
+
 #define APSTUDIO_READONLY_SYMBOLS
 /////////////////////////////////////////////////////////////////////////////
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "afxres.h"
+
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
+
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// English (United States) resources
+
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-#endif //_WIN32
+
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
 //
 // TEXTINCLUDE
 //
-1 TEXTINCLUDE DISCARDABLE 
+
+1 TEXTINCLUDE 
 BEGIN
     "resource.h\0"
 END
-2 TEXTINCLUDE DISCARDABLE 
+
+2 TEXTINCLUDE 
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
-3 TEXTINCLUDE DISCARDABLE 
+
+3 TEXTINCLUDE 
 BEGIN
     "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
     "#define _AFX_NO_OLE_RESOURCES\r\n"
@@ -46,103 +52,95 @@ BEGIN
     "#include ""afxres.rc""         // Standard components\r\n"
     "#endif\0"
 END
+
 #endif    // APSTUDIO_INVOKED
+
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Icon
 //
+
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDR_MAINFRAME           ICON    DISCARDABLE     "res\\UserList.ico"
+IDR_MAINFRAME           ICON                    "res\\UserList.ico"
+
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Dialog
 //
-IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 217, 55
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+
+IDD_ABOUTBOX DIALOG 0, 0, 217, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About UserList"
 FONT 8, "MS Sans Serif"
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "UserList Version 1.0",IDC_STATIC,40,10,119,8,
-                    SS_NOPREFIX
+    LTEXT           "UserList Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
     LTEXT           "Copyright © 1996",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,32,14,WS_GROUP
 END
+
 IDD_USERLIST_DIALOG DIALOGEX 0, 0, 185, 92
-STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "UserList"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,130,5,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,130,25,50,14
     PUSHBUTTON      "Test",IDTEST,130,45,50,14
     GROUPBOX        "",IDC_STATIC,5,5,115,80
-    LTEXT           "This example shows you how to access the userdata from the Wildcat Server. To try it out click on the ""Test"" button.",
-                    IDC_STATIC,10,15,105,65
+    LTEXT           "This example shows you how to access the userdata from the Wildcat Server. To try it out click on the ""Test"" button.",IDC_STATIC,10,15,105,65
 END
-IDD_USERDLG DIALOG DISCARDABLE  0, 0, 226, 130
-STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
+
+IDD_USERDLG DIALOG 0, 0, 226, 130
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "UserListBox"
 FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "Display",IDDISPLAY,87,109,50,14
-    LISTBOX         IDC_USERLIST,5,5,215,95,LBS_SORT | LBS_USETABSTOPS | 
-                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | 
-                    WS_TABSTOP
+    LISTBOX         IDC_USERLIST,5,5,215,95,LBS_SORT | LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
 END
+
 IDD_USERDISPLAY DIALOGEX 0, 0, 294, 175
-STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "User Display"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,120,155,50,14
-    CONTROL         "Name",IDC_STATICNAME,"Static",SS_SIMPLE | WS_GROUP,5,5,
-                    20,8
+    CONTROL         "Name",IDC_STATICNAME,"Static",SS_SIMPLE | WS_GROUP,5,5,20,8
     LTEXT           "",IDC_NAMETXT,45,5,235,10,WS_BORDER,WS_EX_CLIENTEDGE
-    CONTROL         "From",IDC_STATICFROM,"Static",SS_SIMPLE | WS_GROUP,5,20,
-                    16,8
+    CONTROL         "From",IDC_STATICFROM,"Static",SS_SIMPLE | WS_GROUP,5,20,16,8
     LTEXT           "",IDC_FROMTXT,45,20,235,10,WS_BORDER,WS_EX_CLIENTEDGE
-    CONTROL         "Security",IDC_STATICSECURITY,"Static",SS_SIMPLE | 
-                    WS_GROUP,5,35,26,8
-    LTEXT           "",IDC_SECURITYTXT,45,35,235,10,WS_BORDER,
-                    WS_EX_CLIENTEDGE
-    CONTROL         "Real Name",IDC_STATICREALNAME,"Static",SS_SIMPLE | 
-                    WS_GROUP,5,50,36,8
-    LTEXT           "",IDC_REALNAMETXT,45,50,235,10,WS_BORDER,
-                    WS_EX_CLIENTEDGE
-    CONTROL         "Phone",IDC_STATICPHONE,"Static",SS_SIMPLE | WS_GROUP,5,
-                    65,22,8
+    CONTROL         "Security",IDC_STATICSECURITY,"Static",SS_SIMPLE | WS_GROUP,5,35,26,8
+    LTEXT           "",IDC_SECURITYTXT,45,35,235,10,WS_BORDER,WS_EX_CLIENTEDGE
+    CONTROL         "Real Name",IDC_STATICREALNAME,"Static",SS_SIMPLE | WS_GROUP,5,50,36,8
+    LTEXT           "",IDC_REALNAMETXT,45,50,235,10,WS_BORDER,WS_EX_CLIENTEDGE
+    CONTROL         "Phone",IDC_STATICPHONE,"Static",SS_SIMPLE | WS_GROUP,5,65,22,8
     LTEXT           "",IDC_PHONETXT,45,65,235,10,WS_BORDER,WS_EX_CLIENTEDGE
-    CONTROL         "Company",IDC_STATICCOMPANY,"Static",SS_SIMPLE | 
-                    WS_GROUP,5,80,30,8
-    LTEXT           "",IDC_COMPANYTXT,45,80,235,10,WS_BORDER,
-                    WS_EX_CLIENTEDGE
-    CONTROL         "Address1",IDC_STATICADDRESS1,"Static",SS_SIMPLE | 
-                    WS_GROUP,5,95,30,8
-    LTEXT           "",IDC_ADDRESS1TXT,45,95,235,10,WS_BORDER,
-                    WS_EX_CLIENTEDGE
-    CONTROL         "Address2",IDC_STATICADDRESS2,"Static",SS_SIMPLE | 
-                    WS_GROUP,5,110,30,8
-    LTEXT           "",IDC_ADDRESS2TXT,45,110,235,10,WS_BORDER,
-                    WS_EX_CLIENTEDGE
-    CONTROL         "City",IDC_STATICCITY,"Static",SS_SIMPLE | WS_GROUP,5,
-                    125,12,8
+    CONTROL         "Company",IDC_STATICCOMPANY,"Static",SS_SIMPLE | WS_GROUP,5,80,30,8
+    LTEXT           "",IDC_COMPANYTXT,45,80,235,10,WS_BORDER,WS_EX_CLIENTEDGE
+    CONTROL         "Address1",IDC_STATICADDRESS1,"Static",SS_SIMPLE | WS_GROUP,5,95,30,8
+    LTEXT           "",IDC_ADDRESS1TXT,45,95,235,10,WS_BORDER,WS_EX_CLIENTEDGE
+    CONTROL         "Address2",IDC_STATICADDRESS2,"Static",SS_SIMPLE | WS_GROUP,5,110,30,8
+    LTEXT           "",IDC_ADDRESS2TXT,45,110,235,10,WS_BORDER,WS_EX_CLIENTEDGE
+    CONTROL         "City",IDC_STATICCITY,"Static",SS_SIMPLE | WS_GROUP,5,125,12,8
     LTEXT           "",IDC_CITYTXT,45,125,235,10,WS_BORDER,WS_EX_CLIENTEDGE
-    CONTROL         "State",IDC_STATICSTATE,"Static",SS_SIMPLE | WS_GROUP,5,
-                    140,18,8
+    CONTROL         "State",IDC_STATICSTATE,"Static",SS_SIMPLE | WS_GROUP,5,140,18,8
     LTEXT           "",IDC_STATETXT,45,140,235,10,WS_BORDER,WS_EX_CLIENTEDGE
 END
-#ifndef _MAC
+
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Version
 //
+
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 8,0,454,14
- PRODUCTVERSION 8,0,454,14
+ FILEVERSION 10,0,500,1
+ PRODUCTVERSION 10,0,500,1
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -155,17 +153,16 @@ VS_VERSION_INFO VERSIONINFO
 BEGIN
     BLOCK "StringFileInfo"
     BEGIN
-        BLOCK "040904B0"
+        BLOCK "040904b0"
         BEGIN
-            VALUE "CompanyName",    "Santronics Software, Inc.\0"
-            VALUE "FileDescription", "USERLIST MFC Application\0"
-            VALUE "FileVersion",    "8, 0, 454, 14\0"
-            VALUE "InternalName", "USERLIST\0"
-            VALUE "LegalCopyright", "Copyright © 1998-2023 Santronics Software, Inc.\0"
-            VALUE "LegalTrademarks", "\0"
-            VALUE "OriginalFilename", "USERLIST.EXE\0"
-            VALUE "ProductName",    "Wildcat! Interactive Net Server\0"
-            VALUE "ProductVersion", "8, 0, 454, 14\0"
+            VALUE "CompanyName", "Santronics Software, Inc."
+            VALUE "FileDescription", "USERLIST MFC Application"
+            VALUE "FileVersion", "10.0.500.1"
+            VALUE "InternalName", "USERLIST"
+            VALUE "LegalCopyright", "Copyright © 1998-2025 Santronics Software, Inc."
+            VALUE "OriginalFilename", "USERLIST.EXE"
+            VALUE "ProductName", "Wildcat! Interactive Net Server"
+            VALUE "ProductVersion", "10.0.500.1"
         END
     END
     BLOCK "VarFileInfo"
@@ -173,13 +170,15 @@ BEGIN
         VALUE "Translation", 0x409, 1200
     END
 END
-#endif    // !_MAC
+
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // DESIGNINFO
 //
+
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
@@ -188,6 +187,7 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 48
     END
+
     IDD_USERLIST_DIALOG, DIALOG
     BEGIN
         LEFTMARGIN, 7
@@ -195,6 +195,7 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 85
     END
+
     IDD_USERDLG, DIALOG
     BEGIN
         LEFTMARGIN, 7
@@ -202,6 +203,7 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 123
     END
+
     IDD_USERDISPLAY, DIALOG
     BEGIN
         LEFTMARGIN, 7
@@ -211,16 +213,23 @@ BEGIN
     END
 END
 #endif    // APSTUDIO_INVOKED
+
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // String Table
 //
-STRINGTABLE DISCARDABLE 
+
+STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About UserList..."
 END
-#endif    // English (U.S.) resources
+
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
+
+
+
 #ifndef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -230,6 +239,7 @@ END
 #define _AFX_NO_OLE_RESOURCES
 #define _AFX_NO_TRACKER_RESOURCES
 #define _AFX_NO_PROPERTY_RESOURCES
+
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
 LANGUAGE 9, 1
@@ -240,3 +250,4 @@ LANGUAGE 9, 1
 #endif
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
+

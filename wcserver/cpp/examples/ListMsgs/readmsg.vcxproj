@@ -145,9 +145,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ResourceCompile Include="ReadMsg.rc" />
   </ItemGroup>
   <ItemGroup>

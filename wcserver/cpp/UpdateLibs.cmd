@@ -12,8 +12,6 @@
     call :do_update commlib.lib
     call :do_update door32.lib
     call :do_update mimelib.lib
-    goto :finish
-
     call :do_update msgthread.lib
     call :do_update sqlite3.lib
     call :do_update wccdll.lib
@@ -21,9 +19,9 @@
     call :do_update wccorehlp.lib
     call :do_update wcdkim.lib
     call :do_update wcdkimapi.lib
-    call :do_update wcDkimHelper.lib
+    call :do_update wcdkimhelper.lib
     call :do_update wcdns.lib
-    call :do_update wcDoor32.lib
+    call :do_update wcdoor32.lib
     call :do_update wcfront.lib
     call :do_update wciphlpapi.lib
     call :do_update wciptrack.lib
@@ -31,7 +29,7 @@
     call :do_update wcmsgdb.lib
     call :do_update wcodbc.lib
     call :do_update wcsmtpft.lib
-    call :do_update wcSMtpStats.lib
+    call :do_update wcsmtpstats.lib
     call :do_update wcspf.lib
     call :do_update wcsrv.lib
     call :do_update wcsrv2.lib
@@ -49,20 +47,39 @@
 :do_update
     cecho "* Updating %1"
 
-    call :do_dir lib %1
+:: no toolset
     call :do_dir lib32 %1
     call :do_dir lib32xp %1
-    call :do_dir lib32xpd %1
     call :do_dir lib64 %1
     call :do_dir lib64xp %1
+    :: debug
+    call :do_dir lib32xpd %1
     call :do_dir lib64xpd %1
+
+:: v140 toolset
+    call :do_dir lib32_v140 %1
+    call :do_dir lib32_v140_xp %1
+    call :do_dir lib64_v140 %1
+    call :do_dir lib64_v140_xp %1
+    :: debug
+    call :do_dir lib32_v140_xpd %1
+    call :do_dir lib64_v140_xpd %1
+
+:: v143 toolset
+    call :do_dir lib32_v143 %1
+    call :do_dir lib32_v143_xp %1
+    call :do_dir lib64_v143 %1
+    call :do_dir lib64_v143_xp %1
+    call :do_dir lib32_v143_xpd %1
+    call :do_dir lib64_v143_xpd %1
+    goto :eof
+
+:: default
+    call :do_dir lib %1
     call :do_dir libd %1
     goto :eof
 
-
 :do_dir
-    cecho "- %1\%2"
-
     set src.file=%src.path%\%1\%2
     set tar.file=%tar.path%\%1\%2
     set tar.lib=%tar.path%\%1
@@ -71,8 +88,9 @@
        echo %src.file% >> $missing-libs.txt
        goto :eof
     )
-    xcopy %src.file% %tar.lib% /d /y> nul
-
+    if not exist %tar.lib% md %tar.lib%
+    cecho "- %1\%2"
+    xcopy %src.file% %tar.lib% /D /Y > nul
     goto :eof
 
 

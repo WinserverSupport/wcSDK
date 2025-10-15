@@ -1,25 +1,25 @@
 //***********************************************************************
-// (c) Copyright 1998-2019 Santronics Software, Inc. All Rights Reserved.
+// (c) Copyright 1998-2025 Santronics Software, Inc. All Rights Reserved.
 //***********************************************************************
 //
 // File Name : wcDoor32-Example.cpp
 // Subsystem : Wildcat! DOOR32
-// Date      : 03/06/2019
-// Version   : 454.8
+// Date      : 10/15/2025
+// Version   : 500.1
 // Author    : HLS
 // About     :
 //
 // This is a sample which shows how to use the 32-bit door interface
 // (WCDOOR32.DLL).
 //
-// Basically you just call DoorInitialize to start up, and
-// DoorShutdown to clean up.  Writing to the port is done with
-// DoorWrite, no translation of any kind is done, just raw output.
-// DoorRead will read characters from the input buffer.  It just
+// Basically you just call wcDoorInitialize to start up, and
+// wcDoorShutdown to clean up.  Writing to the port is done with
+// wcDoorWrite, no translation of any kind is done, just raw output.
+// wcDoorRead will read characters from the input buffer.  It just
 // returns with no characters read if there isn't anything to read
 // (it does not block).
 //
-// However, this example uses the more efficient DoorEvent() function
+// However, this example uses the more efficient wcDoorEvent() function
 // which allows you to watch for keystrokes, idle timeouts and
 // disconnects!
 //
@@ -32,6 +32,7 @@
 // Build    Date      Author  Comments
 // -----    --------  ------  -------------------------------------------
 // 454.8    05/09/19  SSI     - Updated for wcSDK 8.0
+// 500.1    10/15/25  SSI     - Updated for wcSDK 10.0
 //***********************************************************************
 
 #include <wcCompiler.h>
@@ -40,8 +41,8 @@
 #include <stdio.h>
 #pragma hdrstop
 
-#include "wcdoor32.h"
-#include "wcserver.h"
+#include <wcdoor32.h>
+#include <wcserver.h>
 
 #pragma comment(lib,"wcdoor32.lib")
 #pragma comment(lib,"wcsrv2.lib")
@@ -53,7 +54,7 @@ void Wprintf(const char *s, ...)
   char buf[1024];
   vsprintf(buf, s, args);
   va_end(args);
-  DoorWrite((BYTE *)buf, (DWORD)strlen(buf));
+  wcDoorWrite((BYTE *)buf, (DWORD)strlen(buf));
 }
 
 /*
@@ -67,7 +68,7 @@ DWORD CALLBACK NodeCallback(DWORD userdata, const TChannelMessage *msg)
     if (msg->Channel == SystemControlNodeChannel) {
       switch (msg->UserData) {
         case SC_DISCONNECT:
-            SetEvent(DoorGetOfflineEventHandle());
+            SetEvent(wcDoorGetOfflineEventHandle());
             break;
       }
     }
@@ -82,7 +83,7 @@ int main(int, char *[])
    // Initialized it!
    //
 
-   if (!DoorInitialize()) {
+   if (!wcDoorInitialize()) {
       printf("! Could not initialize door\n\n");
       printf("! This program must be run as a 32-bit door from Wildcat.\n");
 	  printf("! Exiting within 5 seconds");
@@ -117,12 +118,12 @@ int main(int, char *[])
    int   idleTimeout        = 60;  // seconds
 
    while (Active) {
-     switch (DoorEvent(idleTimeout*1000)) {
+     switch (wcDoorEvent(idleTimeout*1000)) {
 
        case WCDOOR_EVENT_KEYBOARD:
             Active = 2;
             BYTE c;
-            DoorRead(&c, 1);
+            wcDoorRead(&c, 1);
             if (c == 27) Active = 0;
             Wprintf("%c", c);
 			if (c == 13) Wprintf("%c",'\n');
@@ -152,7 +153,7 @@ int main(int, char *[])
    }
 
    Wprintf("\r\n\r\nReturning to bbs...\r\n");
-   DoorShutdown();
+   wcDoorShutdown();
    Sleep(1000);
    return 0;
 }
