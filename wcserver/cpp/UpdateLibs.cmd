@@ -52,7 +52,6 @@
     call :do_dir lib32xp %1
     call :do_dir lib64 %1
     call :do_dir lib64xp %1
-    :: debug
     call :do_dir lib32xpd %1
     call :do_dir lib64xpd %1
 
@@ -61,10 +60,8 @@
     call :do_dir lib32_v140_xp %1
     call :do_dir lib64_v140 %1
     call :do_dir lib64_v140_xp %1
-    :: debug
     call :do_dir lib32_v140_xpd %1
     call :do_dir lib64_v140_xpd %1
-
 :: v143 toolset
     call :do_dir lib32_v143 %1
     call :do_dir lib32_v143_xp %1
