@@ -42,8 +42,8 @@ END
 // Version
 //
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 8,0,454,14
- PRODUCTVERSION 8,0,454,14
+ FILEVERSION 10,0,500,2
+ PRODUCTVERSION 10,0,500,2
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -60,12 +60,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName",    "Santronics Software, Inc.\0"
             VALUE "FileDescription", "wcATL Module\0"
-            VALUE "FileVersion",    "8, 0, 454, 14\0"
+            VALUE "FileVersion",    "10.0.500.2\0"
             VALUE "InternalName", "wcATL\0"
-            VALUE "LegalCopyright", "Copyright © 1998-2023 Santronics Software, Inc.\0"
+            VALUE "LegalCopyright", "Copyright © 1998-2026 Santronics Software, Inc.\0"
             VALUE "OriginalFilename", "wcATL.DLL\0"
             VALUE "ProductName",    "Wildcat! Interactive Net Server\0"
-            VALUE "ProductVersion", "8, 0, 454, 14\0"
+            VALUE "ProductVersion", "10.0.500.2\0"
             VALUE "OLESelfRegister", "\0"
         END
     END
