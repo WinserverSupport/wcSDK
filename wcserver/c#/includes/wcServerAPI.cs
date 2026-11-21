@@ -742,6 +742,7 @@ namespace wcSDK
         public const int CALLTYPE_IMAP = 0x00001000;
         public const int CALLTYPE_SFTP = 0x00002000;
         public const int CALLTYPE_STELNET = 0x00004000;
+        public const int SERVER_SSH = CALLTYPE_SFTP;      // 500.4 TComputerConfig.Servers bit
         public const int mfIMAPPost = 0x10000000;
         public const int mfDigestSent = 0x20000000;
         public const int ffAllowFileComments = 0x00000002;

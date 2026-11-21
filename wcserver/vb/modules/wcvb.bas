@@ -1112,6 +1112,7 @@ public const CALLTYPE_HTTPS as Long    = &H00000800
 public const CALLTYPE_IMAP as Long     = &H00001000
 public const CALLTYPE_SFTP as Long     = &H00002000
 public const CALLTYPE_STELNET as Long  = &H00004000
+public const SERVER_SSH as Long        = &H00002000
 
 
 public const ccAuto = 0

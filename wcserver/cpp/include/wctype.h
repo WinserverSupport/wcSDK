@@ -26,6 +26,7 @@
 //                         TWildcatSFTP -> TWildcatSSH, SFTPConfig -> SSHConfig
 //                         ipportSFtp -> ipportSsh, SftpPort -> SshPort
 //                         sftp auth/transport bits -> ssh (listing bits stay)
+//                         SERVER_SSH (Servers bit, = CALLTYPE_SFTP)
 //-----------------------------------------------------------------------
 
 #ifndef __WCTYPE_H
@@ -1123,6 +1124,11 @@ const DWORD CALLTYPE_HTTPS    = 0x00000800;   // !!! HTTPS client
 const DWORD CALLTYPE_IMAP     = 0x00001000;   // !!! IMAP client
 const DWORD CALLTYPE_SFTP     = 0x00002000;   // !!! SFTP client	500.3 26.9.15
 const DWORD CALLTYPE_STELNET  = 0x00004000;   // !!! SSH Shell/Telnet client 500.3 26.10.4
+
+// 500.4 26.11.21 TComputerConfig.Servers bit for the wcSSH Server listener
+// (SFTP and Terminal).  Not a call type: sessions are CALLTYPE_SFTP or
+// CALLTYPE_STELNET.
+const DWORD SERVER_SSH       = 0x00002000;   // == CALLTYPE_SFTP
 
 enum { ccAuto,ccRLSD,ccDSR };
 
