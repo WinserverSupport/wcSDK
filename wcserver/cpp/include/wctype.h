@@ -22,6 +22,10 @@
 //                           OBJECTID_ALLOW_STELNET_ACCESS
 //                           SSH_MAX_KEYS
 //                           SSH_MAX_KEY_LEN
+// 500.4  11/21/26 HLS     wcSSH Server naming (SFTP + Terminal, one server):
+//                         TWildcatSFTP -> TWildcatSSH, SFTPConfig -> SSHConfig
+//                         ipportSFtp -> ipportSsh, SftpPort -> SshPort
+//                         sftp auth/transport bits -> ssh (listing bits stay)
 //-----------------------------------------------------------------------
 
 #ifndef __WCTYPE_H
@@ -551,7 +555,7 @@ typedef struct tagTWildcatFTP {
 //
 
 //---------------------------------------------------------------------------------
-// 500.3 26.9.15  SFTP server settings.
+// 500.3 26.9.15  wcSSH server settings (SFTP and Terminal).
 //
 // Carved from Reserved2[32] + Reserved1[32] in TMakewild, which are ADJACENT
 // and therefore usable as one 64-byte block.  44 used, 20 left.
@@ -559,32 +563,32 @@ typedef struct tagTWildcatFTP {
 // FTPConfig, POP3Config and MAILLogOptions sit between them -- so the two
 // cannot be merged.  Reserved[12] is untouched and still free.)
 //
-// Server code reaches this as Makewild.Public.SFTPConfig, via the TMakewildRecord
+// Server code reaches this as Makewild.Public.SSHConfig, via the TMakewildRecord
 // wrapper in wctypemw.h:60.  SDK clients using GetMakewild(TMakewild&) see it as
-// Makewild.SFTPConfig.
+// Makewild.SSHConfig.
 //
 // NO dwPort FIELD BY DESIGN.  The listen port is per-computer, in
-// TComputerConfig.SftpPort / ipportSFtp, exactly as FTP, Telnet, POP3 and
+// TComputerConfig.SshPort / ipportSsh, exactly as FTP, Telnet, POP3 and
 // HTTP do it -- TWildcatFTP has no port field either.  A port here would be
 // a second source of truth and the two would disagree the first time a
 // sysop edited one of them.
 //
 // PATHS ARE NOT HERE.  One host key path at MAX_PATH is 260 bytes, six
 // times this whole struct.  Host key files, the authorized-keys location,
-// the ident string and the auth banner stay in wc:\data\wcsftp.ini.
+// the ident string and the auth banner stay in wc:\ssh\wcssh.ini.
 //
 // dwVersion == 0 is the "never initialised" test.  Reserved space is
 // zero-filled, so this is self-describing and needs no new
 // WC_DWORD_VERSION constant -- the same pattern SMTPConfig uses.
 //---------------------------------------------------------------------------------
 
-typedef struct tagTWildcatSFTP {
+typedef struct tagTWildcatSSH {
   WORD  dwVersion;          // should be 0x0A00 after initialization
   WORD  dwRevision;         // should be 1
   DWORD dwOptions;          // see sftpXXXXX bit options
   DWORD MaxConnects;        // 0 = unlimited
   TWildcatLogOptions LogOptions;
-} TWildcatSFTP;             // 44 bytes
+} TWildcatSSH;              // 44 bytes
 //
 
 typedef struct tagTMakewild {
@@ -617,7 +621,7 @@ typedef struct tagTMakewild {
   TWildcatFTP  FTPConfig;
   TWildcatPOP3 POP3Config;
   TWildcatLogOptions MAILLogOptions;
-  TWildcatSFTP SFTPConfig;      // 500.3 26.9.15 was Reserved2[32]+Reserved1[32]
+  TWildcatSSH SSHConfig;        // 500.3 26.9.15 was Reserved2[32]+Reserved1[32]
   char Reserved1[20];           // 500.3 26.9.15 was 32, name kept deliberately
   TWildcatLogOptions SMTPLogOptions;
   TWildcatNNTP NNTPConfig;
@@ -661,8 +665,8 @@ typedef struct tagTComputerConfig {
   TWildcatComputerIpPort ipportTelnet;
   TWildcatComputerIpPort ipportSmtp;
   TWildcatComputerIpPort ipportNntp;
-  TWildcatComputerIpPort ipportSFtp;	// 500.3 26.9.15 new 8 bytes
-  DWORD SftpPort;						// 500.3 26.9.15 new 4 bytes
+  TWildcatComputerIpPort ipportSsh;	// 500.3 26.9.15 new 8 bytes
+  DWORD SshPort;						// 500.3 26.9.15 new 4 bytes
   BYTE Reserved[320];					// 500.3 26.9.15 was 332
   DWORD TelnetPort;
   DWORD Pop3Port;
@@ -728,7 +732,7 @@ const DWORD ftpResolveHost   = 0x0020;   //! resolve host name
 const DWORD ftpDisableIndex  = 0x0040;   //! Disable Index Files
 
 //!
-//! TWildcatSFTP.dwOptions Bit Flags     500.3 26.9.15
+//! TWildcatSSH.dwOptions Bit Flags     500.3 26.9.15
 //!
 //! The first four values MATCH their ftpXXXX equivalents on purpose, so the
 //! two option words can be compared or copied without a translation table.
@@ -741,13 +745,13 @@ const DWORD sftpBit0            = 0x0001;   //! ignore this bit
 const DWORD sftpUnixFileAge     = 0x0002;   //! Use Unix-style File Age Range
 const DWORD sftpUseSecLimit     = 0x0004;   //! Use Security Profile Limits
 const DWORD sftpCheckForDIZ     = 0x0008;   //! Check for DIZ in uploads
-const DWORD sftpResolveHost     = 0x0020;   //! resolve host name
+const DWORD sshResolveHost      = 0x0020;   //! resolve host name
 const DWORD sftpDisableIndex    = 0x0040;   //! Disable Index Files
-const DWORD sftpIdleDisconnect  = 0x0080;   //! Drop idle sessions
-const DWORD sftpEnableWcxConnect= 0x0100;   //! Run the sftpcmd-connect hook
-const DWORD sftpAllowPassword   = 0x0200;   //! Permit password authentication
-const DWORD sftpAllowPublicKey  = 0x0400;   //! Permit publickey authentication
-const DWORD sftpRequirePublicKey= 0x0800;
+const DWORD sshIdleDisconnect   = 0x0080;   //! Drop idle sessions
+const DWORD sshEnableWcxConnect = 0x0100;   //! Run the sftpcmd-connect hook
+const DWORD sshAllowPassword    = 0x0200;   //! Permit password authentication
+const DWORD sshAllowPublicKey   = 0x0400;   //! Permit publickey authentication
+const DWORD sshRequirePublicKey = 0x0800;
 
 //! 500.3 26.9.15  NAMESPACE OPTIONS -- revision 2.
 //!
@@ -774,12 +778,12 @@ const DWORD sftpRequirePublicKey= 0x0800;
 //! that reaches wcServer over RPC cannot assert an identity it cannot
 //! cryptographically prove.
 //!
-//! SET means wcServer ACCEPTS wcSFTP's word for it.  That is faster and
+//! SET means wcServer ACCEPTS wcoSSH's word for it.  That is faster and
 //! avoids verifying twice, but it turns a real trust boundary into an
 //! assertion: ANY wcSDK client able to reach wcServer could then claim
 //! to be any user.  Only set it where the RPC channel itself is trusted
 //! end to end.
-const DWORD sftpTrustModuleAuth = 0x8000;
+const DWORD sshTrustModuleAuth  = 0x8000;
 
 //---------------------------------------------------------------------------
 //! 500.3 26.10.4  SSH Public Keys constants:
@@ -803,7 +807,7 @@ const DWORD SSH_MAX_KEYS       = 16;
 const DWORD SSH_MAX_KEY_LEN    = 2048;
 
 //!
-//! wcSFTP Server listing options
+//! SFTP listing options
 //!
 
 const DWORD sftpShowFileGroups  = 0x1000;

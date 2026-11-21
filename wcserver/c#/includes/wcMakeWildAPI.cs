@@ -13,7 +13,7 @@
 // -----    --------  ------  -------------------------------------------
 // 454.8    04/29/19  SSI     - Start of V8.0
 // 500.3    10/14/26  HLS     - MwGetMakewild/MwUpdateMakewild direct to
-//                              wcsmw.dll by ref (TMakewild.SFTPConfig)
+//                              wcsmw.dll by ref (TMakewild.SSHConfig)
 //***********************************************************************
 
 using System;
@@ -174,7 +174,7 @@ namespace wcSDK
 		////! see also MwUpdateMakeWild
 		////!----------------------------------------------------------------
 		// 500.3 26.10.14 direct and by ref: was wcvb.dll by value (no data
-		// returned), and wcvb treats TMakewild.SFTPConfig as text
+		// returned), and wcvb treats TMakewild.SSHConfig as text
 		[DllImport("wcsmw.dll", SetLastError=true)]
 		public extern static bool MwGetMakewild(ref TWildcatServerPrivateConfig mw);
 
@@ -186,7 +186,7 @@ namespace wcSDK
 		////! returns TRUE if successful, otherwise see extended error
 		////! see also MwGetMakeWild
 		////!----------------------------------------------------------------
-		// 500.3 26.10.14 direct and by ref: wcvb would rewrite SFTPConfig bytes
+		// 500.3 26.10.14 direct and by ref: wcvb would rewrite SSHConfig bytes
 		[DllImport("wcsmw.dll", SetLastError=true)]
 		public extern static bool MwUpdateMakewild(ref TWildcatServerPrivateConfig mw);
 

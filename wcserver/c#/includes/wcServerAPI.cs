@@ -20,7 +20,7 @@
 //                              struct sizes verified equal to C (x86);
 //                              TMakewild was 120 bytes short (overrun),
 //                              TMenu/TwcMenuItem/TSystemPageInstantMessage
-//                              fixed; TWildcatSFTP, TFileComment,
+//                              fixed; TWildcatSSH, TFileComment,
 //                              TFileSearchRecord added; 15 functions incl.
 //                              SSH public key; output buffers StringBuilder
 //                              or byte[], not ref string; 41 constants
@@ -721,14 +721,14 @@ namespace wcSDK
         public const int sftpUnixFileAge = 0x0002;
         public const int sftpUseSecLimit = 0x0004;
         public const int sftpCheckForDIZ = 0x0008;
-        public const int sftpResolveHost = 0x0020;
+        public const int sshResolveHost = 0x0020;
         public const int sftpDisableIndex = 0x0040;
-        public const int sftpIdleDisconnect = 0x0080;
-        public const int sftpEnableWcxConnect = 0x0100;
-        public const int sftpAllowPassword = 0x0200;
-        public const int sftpAllowPublicKey = 0x0400;
-        public const int sftpRequirePublicKey = 0x0800;
-        public const int sftpTrustModuleAuth = 0x8000;
+        public const int sshIdleDisconnect = 0x0080;
+        public const int sshEnableWcxConnect = 0x0100;
+        public const int sshAllowPassword = 0x0200;
+        public const int sshAllowPublicKey = 0x0400;
+        public const int sshRequirePublicKey = 0x0800;
+        public const int sshTrustModuleAuth = 0x8000;
         public const string SSH_KEYS_SECTION = "SSH_KEYS";
         public const int SSH_MAX_KEYS = 16;
         public const int SSH_MAX_KEY_LEN = 2048;
@@ -1013,9 +1013,9 @@ namespace wcSDK
             public byte[] Reserved;
         }
 
-        // 500.3 26.10.14 SFTP server configuration, TMakewild.SFTPConfig (44 bytes)
+        // 500.3 26.10.14 SFTP server configuration, TMakewild.SSHConfig (44 bytes)
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public struct TWildcatSFTP
+        public struct TWildcatSSH
         {
             public short dwVersion;
             public short dwRevision;
@@ -1211,7 +1211,7 @@ namespace wcSDK
             public TWildcatFTP FTPConfig;
             public TWildcatPOP3 POP3Config;
             public TWildcatLogOptions MAILLogOptions;
-            public TWildcatSFTP SFTPConfig;                            // 500.3 26.10.14 was Reserved2[32] + Reserved1[32]
+            public TWildcatSSH SSHConfig;                            // 500.3 26.10.14 was Reserved2[32] + Reserved1[32]
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 20)]
             public byte[] Reserved1;
             public TWildcatLogOptions SMTPLogOptions;
@@ -1267,8 +1267,8 @@ namespace wcSDK
             public TWildcatComputerIpPort ipportTelnet;
             public TWildcatComputerIpPort ipportSmtp;
             public TWildcatComputerIpPort ipportNntp;
-            public TWildcatComputerIpPort ipportSFtp;                  // 500.3 26.10.14 these five were Reserved[340]
-            public int SftpPort;
+            public TWildcatComputerIpPort ipportSsh;                  // 500.3 26.10.14 these five were Reserved[340]
+            public int SshPort;
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 320)]
             public byte[] Reserved;
             public int TelnetPort;
@@ -2136,7 +2136,7 @@ namespace wcSDK
         [DllImport("wcsrv2.dll", SetLastError = true)]
         public extern static bool SetNodeStatus(int nodestatus);
         // 500.3 26.10.14 direct, not wcvb.dll vbGetMakewild: wcvb's 2019
-        // conversion treats SFTPConfig as text and fills it with spaces
+        // conversion treats SSHConfig as text and fills it with spaces
         [DllImport("wcsrv2.dll", SetLastError = true)]
         public extern static bool GetMakewild(ref TMakewild mw);
         [DllImport("wcvb.dll", EntryPoint = "vbGetComputerConfig", SetLastError = true)]

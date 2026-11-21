@@ -543,7 +543,7 @@ type TWildcatFTP
 end type
 
 
-type TWildcatSFTP
+type TWildcatSSH
   dwVersion as Integer
   dwRevision as Integer
   dwOptions as Long
@@ -582,7 +582,7 @@ type TMakewild
   FTPConfig as TWildcatFTP
   POP3Config as TWildcatPOP3
   MAILLogOptions as TWildcatLogOptions
-  SFTPConfig as TWildcatSFTP
+  SSHConfig as TWildcatSSH
   Reserved1 as String*20
   SMTPLogOptions as TWildcatLogOptions
   NNTPConfig as TWildcatNNTP
@@ -628,8 +628,8 @@ type TComputerConfig
   ipportTelnet as TWildcatComputerIpPort
   ipportSmtp as TWildcatComputerIpPort
   ipportNntp as TWildcatComputerIpPort
-  ipportSFtp as TWildcatComputerIpPort
-  SftpPort as Long
+  ipportSsh as TWildcatComputerIpPort
+  SshPort as Long
   Reserved(1 to 320) as Byte
   TelnetPort as Long
   Pop3Port as Long
@@ -700,7 +700,7 @@ public const ftpResolveHost as Long   = &H0020
 public const ftpDisableIndex as Long  = &H0040
 
 '//!
-'//! TWildcatSFTP.dwOptions Bit Flags     500.3 26.9.15
+'//! TWildcatSSH.dwOptions Bit Flags     500.3 26.9.15
 '//!
 '//! The first four values MATCH their ftpXXXX equivalents on purpose, so the
 '//! two option words can be compared or copied without a translation table.
@@ -713,13 +713,13 @@ public const sftpBit0 as Long            = &H0001
 public const sftpUnixFileAge as Long     = &H0002
 public const sftpUseSecLimit as Long     = &H0004
 public const sftpCheckForDIZ as Long     = &H0008
-public const sftpResolveHost as Long     = &H0020
+public const sshResolveHost as Long     = &H0020
 public const sftpDisableIndex as Long    = &H0040
-public const sftpIdleDisconnect as Long  = &H0080
-public const sftpEnableWcxConnect= as Long &H0100
-public const sftpAllowPassword as Long   = &H0200
-public const sftpAllowPublicKey as Long  = &H0400
-public const sftpRequirePublicKey= as Long &H0800
+public const sshIdleDisconnect as Long  = &H0080
+public const sshEnableWcxConnect= as Long &H0100
+public const sshAllowPassword as Long   = &H0200
+public const sshAllowPublicKey as Long  = &H0400
+public const sshRequirePublicKey= as Long &H0800
 
 '//! 500.3 26.9.15  NAMESPACE OPTIONS -- revision 2.
 '//!
@@ -746,12 +746,12 @@ public const sftpRequirePublicKey= as Long &H0800
 '//! that reaches wcServer over RPC cannot assert an identity it cannot
 '//! cryptographically prove.
 '//!
-'//! SET means wcServer ACCEPTS wcSFTP's word for it.  That is faster and
+'//! SET means wcServer ACCEPTS wcoSSH's word for it.  That is faster and
 '//! avoids verifying twice, but it turns a real trust boundary into an
 '//! assertion: ANY wcSDK client able to reach wcServer could then claim
 '//! to be any user.  Only set it where the RPC channel itself is trusted
 '//! end to end.
-public const sftpTrustModuleAuth as Long = &H8000
+public const sshTrustModuleAuth as Long = &H8000
 
 '//! 500.3 26.10.4  SSH Public Keys constants:
 '//! SSH_KEYS_SECTION    - default "SSH_KEYS"
@@ -772,7 +772,7 @@ public const SSH_MAX_KEYS as Long       = 16
 public const SSH_MAX_KEY_LEN as Long    = 2048
 
 '//!
-'//! wcSFTP Server listing options
+'//! SFTP listing options
 '//!
 
 public const sftpShowFileGroups as Long  = &H1000
