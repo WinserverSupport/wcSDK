@@ -34,7 +34,7 @@ namespace wcDoor32_example1
 
             door.Writeln("@T@Welcome to WcDoor32.Net Example #1, {0}.@N@", wcGlobal.User.Info.Name);
             door.Writeln("@B@User        : @A@{0}", door.UserName);
-            door.Writeln("@B@Login Node  : @A@{0}", door.Node);
+            door.Writeln("@B@Login Node  : @A@{0}", door.LoginNode);   // 500.4 26.11.22
             door.Writeln("@B@Door Node   : @A@{0}", wcServerAPI.GetNode());
             door.Writeln("@B@Speed       : @A@{0}", door.Speed);
             door.Writeln("@B@ColorEnabled: @A@{0}", door.ColorEnabled);

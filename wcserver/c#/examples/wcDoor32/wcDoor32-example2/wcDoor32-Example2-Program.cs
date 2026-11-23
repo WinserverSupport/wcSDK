@@ -47,7 +47,7 @@ namespace wcDoor32_example2
             door.Write(1, 1, "@H@Welcome to WcDoor32.Net Example #2, '{0}'.@N@", wcGlobal.User.Info.Name);
             door.CursorSave();
             door.Write(1, 3, "@B@User        : @A@{0}", door.UserName);
-            door.Write(1, 4, "@B@Login Node  : @A@{0}", door.Node);
+            door.Write(1, 4, "@B@Login Node  : @A@{0}", door.LoginNode);  // 500.4 26.11.22
             door.Write(1, 5, "@B@Door Node   : @A@{0}", wcServerAPI.GetNode());
             door.Write(1, 7, "@E@Press / to quit:@N@");
             door.Writeln();

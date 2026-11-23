@@ -1,11 +1,11 @@
 ##Wildcat! SDK/API
 <pre>
 Wildcat! SDK/API
-(c) Copyright 1998-2025 Santronics Software, Inc. All Rights Reserved.
+(c) Copyright 1998-2026 Santronics Software, Inc. All Rights Reserved.
 
 Version   : 10.0
-Build     : 500.1
-Date      : 10/15/2025
+Build     : 500.4
+Date      : 11/22/2026
 </pre>
 
 WCSDK Repo   : https://github.com/WinserverSupport/wcSDK
@@ -84,4 +84,6 @@ Revision History:
 | 454.16 | 08/18/25  | SSI    | - Final Update for v8.0.454.16                                    |
 | 500.1  | 08/19/25  | SSI    | - Start wc10 development with v10.0.500.1                         |
 | 500.1  | 10/15/25  | SSI    | - Added toolset-based lib*\ folders                               |
+| 500.3  | 09/05/26  | SSI    | - Updated to 500.3 headers (wcSFTP support)                       |
+| 500.4  | 11/22/26  | SSI    | - Updated to 500.4 headers (wcSFTP and wcSSH Terminal support)    |
 

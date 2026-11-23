@@ -25,6 +25,7 @@
 // 500.1      08/05/25  HLS    - New Build 500.1
 // 500.2      03/21/26  HLS    - build changed to 500.2
 // 500.3      08/07/26  HLS    - Start of Build 500.3
+// 500.4      11/15/26  HLS    - Start of Build 500.4
 //***********************************************************************
 
 #ifndef __WCGLOBAL_H
@@ -169,7 +170,8 @@
 // Start of BUILD 500 08/05/25 02:06 pm
 //#define WC_VERSION_REV     ".1"               // 08/05/25 02:03 pm (10.0.500.1)
 //#define WC_VERSION_REV     ".2"               // 03/21/26 11:06 am (10.0.500.2)
-#define WC_VERSION_REV     ".3"                 // 08/07/26 01:30 pm (10.0.500.3)
+//#define WC_VERSION_REV     ".3"               // 08/07/26 01:30 pm (10.0.500.3)
+#define WC_VERSION_REV     ".4"                 // 11/15/26 (10.0.500.4)
 
 //------------------------------------------------------------------
 // Beta versions
