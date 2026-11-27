@@ -32,7 +32,8 @@ extern struct tm *localtime ();
 
 void exit_()
 {
-    fprintf(stderr, "The game is over.\n");
+    wcprintf("The game is over.\n");	/* 500.4 26.11.26 was stderr */
+    wcioShutdown();
     exit(0);
 }
 

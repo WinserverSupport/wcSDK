@@ -175,7 +175,10 @@ L100:
     rspeak_(q);
 /* 						!ASK */
     (void) wcfflush(stdout);
-    (void) wcfgets(ans, sizeof ans, stdin);
+    if (wcfgets(ans, sizeof ans, stdin) == NULL) {
+	autosave_();			/* 500.4 caller gone: no endless re-ask */
+	exit_();
+    }
     more_input();
 /* 						!GET ANSWER */
     if (*ans == 'Y' || *ans == 'y') {

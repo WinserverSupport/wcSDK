@@ -12,17 +12,16 @@
 
 static integer cxappl_ P((integer));
 
-void savegm_()
+static logical savefile_(fn)
+const char *fn;
 {
     /* Local variables */
     integer i;
     FILE *e;
 
-    prsvec_1.prswon = FALSE_;
-/* 						!DISABLE GAME. */
 /* Note: save file format is different for PDP vs. non-PDP versions */
 
-    if ((e = fopen("dsave.dat", BINWRITE)) == NULL)
+    if ((e = fopen(fn, BINWRITE)) == NULL)
 	goto L100;
 
     gttime_(&i); 
@@ -91,29 +90,39 @@ void savegm_()
     if (fclose(e) == EOF)
 	goto L100;
 
-    rspeak_(597);
-    return;
+    return TRUE_;
 
 L100:
-    rspeak_(598);
+    return FALSE_;
+} /* savefile_ */
+
+/* 500.4 26.11.26 SAVE writes the caller's file (wcioSaveFile) */
+void savegm_()
+{
+    prsvec_1.prswon = FALSE_;
+/* 						!DISABLE GAME. */
+    if (savefile_(wcioSaveFile(1))) {
+	rspeak_(597);
+    } else {
+	rspeak_(598);
 /* 						!CANT DO IT. */
+    }
 } /* savegm_ */
 
 /* RESTORE- RESTORE GAME STATE */
 
 /* DECLARATIONS */
 
-void rstrgm_()
+static integer rstrfile_(fn)
+const char *fn;
 {
     /* Local variables */
     integer i, j, k;
     FILE *e;
 
-    prsvec_1.prswon = FALSE_;
-/* 						!DISABLE GAME. */
 /* Note: save file format is different for PDP vs. non-PDP versions */
 
-    if ((e = fopen("dsave.dat", BINREAD)) == NULL)
+    if ((e = fopen(fn, BINREAD)) == NULL)
 	goto L100;
 
 #define do_uio(i, zbuf, cbytes) \
@@ -179,20 +188,80 @@ void rstrgm_()
     do_uio(25, &cevent_1.ctick[0], sizeof(integer));
 
     (void)fclose(e);
-
-    rspeak_(599);
-    return;
+    return 0;
 
 L100:
-    rspeak_(598);
-/* 						!CANT DO IT. */
-    return;
+    return 1;
 
 L200:
-    rspeak_(600);
-/* 						!OBSOLETE VERSION */
     (void)fclose(e);
+    return 2;
+} /* rstrfile_ */
+
+/* 500.4 26.11.26 RESTORE reads the caller's file (wcioSaveFile) */
+void rstrgm_()
+{
+    prsvec_1.prswon = FALSE_;
+/* 						!DISABLE GAME. */
+    switch (rstrfile_(wcioSaveFile(0))) {
+    case 0:
+	rspeak_(599);
+	break;
+    case 2:
+	rspeak_(600);
+/* 						!OBSOLETE VERSION */
+	break;
+    default:
+	rspeak_(598);
+/* 						!CANT DO IT. */
+	break;
+    }
 } /* rstrgm_ */
+
+/* 500.4 26.11.26 auto-save, separate from SAVE: written when the caller
+ * quits, hangs up or idles out, offered at the next start, removed when
+ * the game ends (death or win) */
+
+void autosave_()
+{
+    const char *fn = wcioAutoSaveFile(1);
+    if (fn) {
+	(void) savefile_(fn);
+    }
+} /* autosave_ */
+
+void autoclear_()
+{
+    const char *fn = wcioAutoSaveFile(0);
+    if (fn) {
+	(void) remove(fn);
+    }
+} /* autoclear_ */
+
+/* 1 resumed, 0 new game, -1 caller gone */
+integer autorestore_()
+{
+    char ans[20];
+    FILE *f;
+    const char *fn = wcioAutoSaveFile(0);
+
+    if (fn == NULL || (f = fopen(fn, BINREAD)) == NULL) {
+	return 0;
+    }
+    (void) fclose(f);
+    wcioPrompt("Resume your last game? (Y/n) ");
+    if (wcfgets(ans, sizeof ans, stdin) == NULL) {
+	return -1;
+    }
+    if (*ans == 'N' || *ans == 'n') {
+	return 0;
+    }
+    if (rstrfile_(fn) == 0) {
+	return 1;
+    }
+    wcprintf("Your last game could not be restored.\n");
+    return 0;
+} /* autorestore_ */
 
 /* WALK- MOVE IN SPECIFIED DIRECTION */
 

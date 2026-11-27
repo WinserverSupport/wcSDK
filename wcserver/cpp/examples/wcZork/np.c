@@ -30,22 +30,20 @@ L5:
     }
 /* 						!SEE WHO TO PROMPT FOR. */
 L10:
-    wcprintf(">");
+    wcioPrompt("> ");			/* 500.4 26.11.26 colored, was ">" */
 /* 						!PROMPT FOR GAME. */
 L90:
     (void) wcfflush(stdout);
 
     if (wcfgets(buffer, 78, stdin) == NULL) {
-        printf("! WCZORK DEBUG: np.c wcfgets(buffer,78,stdin) NULL - ERROR: %d\n",GetLastError());
-	    exit_();
+	autosave_();			/* caller gone or idle timeout */
+	exit_();
     }
 
     more_input();
 
-    if (buffer[0] == '!') {
-	system(buffer + 1);
-	goto L5;
-    }
+    /* 500.4 26.11.26 removed the "!command" shell escape: system()
+     * ran any caller's command on the server */
 
     zlast = buffer - 1;
     for (z = buffer; *z != '\0' && *z != '\n'; z++) {

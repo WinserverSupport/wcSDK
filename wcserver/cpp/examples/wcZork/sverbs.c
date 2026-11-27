@@ -360,6 +360,7 @@ L15000:
 	return ret_val;
     }
 /* 						!ASK FOR Y/N DECISION. */
+    autosave_();			/* 500.4 resume offered next time */
     exit_();
 /* 						!BYE. */
 /* SVERBS, PAGE 4 */

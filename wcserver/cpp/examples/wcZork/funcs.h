@@ -140,5 +140,10 @@ extern logical
 
 #include "wcio.h"
 
+/* 500.4 26.11.26 auto-save (dverb2.c) */
+extern void autosave_ P((void));
+extern void autoclear_ P((void));
+extern integer autorestore_ P((void));
+
 
 #endif

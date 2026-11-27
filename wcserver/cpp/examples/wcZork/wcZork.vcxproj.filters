@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="actors.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ballop.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="clockr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="demons.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dgame.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dinit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dmain.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dso1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dso2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dso3.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dso4.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dso5.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dso6.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dso7.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dsub.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dverb1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dverb2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gdt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lightp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="local.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="nobjs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="np.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="np1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="np2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="np3.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="nrooms.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="objcts.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rooms.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sobjs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="supp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sverbs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="verbs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="villns.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wcio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="funcs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wcio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vars.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

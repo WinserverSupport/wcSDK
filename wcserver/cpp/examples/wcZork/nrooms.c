@@ -346,6 +346,7 @@ L57000:
     rspeak_(726);
     score_(0);
 /* moved to exit routine	CLOSE(DBCH) */
+    autoclear_();			/* 500.4 game won: no resume */
     exit_();
 
 /* R58--	TOMB ROOM */
